@@ -1,0 +1,6 @@
+<launch>
+  <arg name="kinova_robotType" default="j2s7s300"/>
+  <!--<node name="feature_extractor" pkg="robot_grasp" type="VFH" />-->
+  <!--<node name="centroid_computer" pkg="robot_grasp" type="centroid_compute" />-->
+  <node name="coordinates_transformer" pkg="robot_grasp" type="coordinates_transformer" />
+</launch>

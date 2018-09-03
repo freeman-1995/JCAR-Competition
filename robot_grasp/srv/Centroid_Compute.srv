@@ -1,0 +1,4 @@
+sensor_msgs/PointCloud2 cluster
+---
+float32[] Centroid_param
+

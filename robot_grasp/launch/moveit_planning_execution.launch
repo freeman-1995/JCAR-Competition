@@ -1,0 +1,26 @@
+<launch>
+
+<!--gazebo robot & controller load
+  <include file="$(find robot_grasp)/launch/load_model.launch"/>-->
+
+<!-- planning_context -->
+  <include file="$(find j2s7s300_moveit_config)/launch/planning_context.launch" >
+    <arg name="load_robot_description" value="true" />
+  </include>
+
+<!-- move group -->
+  <include file="$(find j2s7s300_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+    <arg name="fake_execution" value="false" />
+  </include>
+
+<!-- moveit rviz -->
+  <include file="$(find j2s7s300_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+  </include>
+
+<!-- warehouse_db -->
+  <include file="$(find j2s7s300_moveit_config)/launch/default_warehouse_db.launch" />
+
+</launch>
+

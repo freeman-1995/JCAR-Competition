@@ -1,0 +1,26 @@
+<launch>
+  <!--Include description and control launch files
+  <include file="$(find robot_grasp)/launch/robot_description.launch"/>
+  <include file="$(find robot_grasp)/launch/robot_control.launch"/>-->
+  <!--Launch a gazebo world-->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find robot_grasp)/world/train_proposal_2.world"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="paused" value="false"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+  <!--spawn a robot in gazebo world
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+  args="-urdf -param robot_description -x 0 -y 1.8 -z 0 -R 0 -P 0 -Y 0 -model sensor_stick"/>-->
+  
+  <!--<node name="spawn_kinect" pkg="gazebo_ros" type="spawn_model" args="-file $(find robot_grasp)/models/kinect/model.sdf -sdf -model kinect -x 0 -y 0 -z 0.701285 " respawn="false" output="screen" /> -->
+  
+  <!-- cloud transformer
+  <node name="cloud_transformer" pkg="robot_grasp" type="cloud_transformer" respawn="false"/>-->
+
+  <!-- The feature extractor node
+  <node name="feature_extractor" pkg="robot_grasp" type="feature_extractor" respawn="false"/>      -roll 3.141591 -pitch 1.570792 -yaw -1.570794      -->
+
+</launch>

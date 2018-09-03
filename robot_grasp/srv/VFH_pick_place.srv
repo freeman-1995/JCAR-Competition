@@ -1,0 +1,5 @@
+# request
+Detected_obj_param[] detected_obj_param_list
+---
+# response
+bool success

@@ -1,0 +1,2272 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='object_on_table'>
+      <link name='table_base'>
+        <pose frame=''>0 0 0.273 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.018512 -0.047982 0.652828 0 -0 0</pose>
+          <mass>4.03703e+06</mass>
+          <inertia>
+            <ixx>966458</ixx>
+            <ixy>0.00577943</ixy>
+            <ixz>-0.0092217</ixz>
+            <iyy>1.0825e+06</iyy>
+            <iyz>-270361</iyz>
+            <izz>806693</izz>
+          </inertia>
+        </inertial>
+        <collision name='table_base_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_base.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base_fixed_joint_lump__table_top_collision_1'>
+          <pose frame=''>0.018512 0.221508 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.05 0.015 0.005</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base_fixed_joint_lump__table_top_collision_2'>
+          <pose frame=''>0.541012 -0.175992 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.005 0.015 0.8</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base_fixed_joint_lump__table_top_collision_3'>
+          <pose frame=''>0.018512 -0.175992 0.397576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_top.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base_fixed_joint_lump__basket_collision_4'>
+          <pose frame=''>0.268512 -0.225992 0.457576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/grasp_object/basket.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base_fixed_joint_lump__basket2_collision_5'>
+          <pose frame=''>-0.181488 -0.225992 0.457576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/grasp_object/basket.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base_fixed_joint_lump__kinect_support_collision_6'>
+          <pose frame=''>0.118512 -0.475992 0.587576 1.5708 0 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/grasp_object/meshes/kinect_support.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base_fixed_joint_lump__camera_link_collision_7'>
+          <pose frame=''>0.118512 -0.197992 1.01358 -3.13396 1.57079 -1.56316</pose>
+          <geometry>
+            <box>
+              <size>0.036 0.18 0.04</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='table_base_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_base.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base_fixed_joint_lump__table_top_visual_1'>
+          <pose frame=''>0.018512 -0.175992 0.397576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_top.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base_fixed_joint_lump__table_top_visual_2'>
+          <pose frame=''>0.018512 0.221508 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.05 0.015 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base_fixed_joint_lump__table_top_visual_3'>
+          <pose frame=''>0.541012 -0.175992 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.005 0.015 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base_fixed_joint_lump__basket_visual_4'>
+          <pose frame=''>0.268512 -0.225992 0.457576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/grasp_object/basket.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base_fixed_joint_lump__basket2_visual_5'>
+          <pose frame=''>-0.181488 -0.225992 0.457576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/grasp_object/basket.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base_fixed_joint_lump__kinect_support_visual_6'>
+          <pose frame=''>0.118512 -0.475992 0.587576 1.5708 0 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/kinect_support.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Black</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base_fixed_joint_lump__camera_link_visual_7'>
+          <pose frame=''>0.118512 -0.197992 0.997576 -3.13396 1.57079 -1.56316</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/kinect/meshes/kinect.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay/>
+        <velocity_decay/>
+        <velocity_decay/>
+        <velocity_decay/>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <sensor name='camera' type='depth'>
+          <always_on>1</always_on>
+          <visualize>0</visualize>
+          <update_rate>15</update_rate>
+          <camera name='front'>
+            <horizontal_fov>1.0472</horizontal_fov>
+            <image>
+              <format>B8G8R8</format>
+              <width>1920</width>
+              <height>1080</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>9</far>
+            </clip>
+          </camera>
+          <plugin name='camera_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.1</baseline>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>15.0</updateRate>
+            <cameraName>camera</cameraName>
+            <imageTopicName>/camera/rgb/image_raw</imageTopicName>
+            <cameraInfoTopicName>/camera/rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/camera/depth_registered/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/camera/depth_registered/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/camera/depth_registered/points</pointCloudTopicName>
+            <frameName>camera_rgb_optical_frame</frameName>
+            <pointCloudCutoff>0.35</pointCloudCutoff>
+            <pointCloudCutoffMax>4.5</pointCloudCutoffMax>
+            <CxPrime>0</CxPrime>
+            <Cx>900</Cx>
+            <Cy>540</Cy>
+            <focalLength>1.0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>0.096512 -0.197992 0.997576 -3.13396 1.57079 -1.56316</pose>
+        </sensor>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j0' type='fixed'>
+        <child>table_base</child>
+        <parent>world</parent>
+      </joint>
+      <link name='table_base2'>
+        <pose frame=''>0 0.85 0.273 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.018512 -0.047982 0.652828 0 -0 0</pose>
+          <mass>4.03703e+06</mass>
+          <inertia>
+            <ixx>966458</ixx>
+            <ixy>-3.72871e-07</ixy>
+            <ixz>-2.51261e-07</ixz>
+            <iyy>1.0825e+06</iyy>
+            <iyz>-270361</iyz>
+            <izz>806693</izz>
+          </inertia>
+        </inertial>
+        <collision name='table_base2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_base.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base2_fixed_joint_lump__table_top2_collision_1'>
+          <pose frame=''>0.018512 0.221508 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.05 0.015 0.005</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base2_fixed_joint_lump__table_top2_collision_2'>
+          <pose frame=''>0.541012 -0.175992 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.005 0.015 0.8</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base2_fixed_joint_lump__table_top2_collision_3'>
+          <pose frame=''>0.018512 -0.175992 0.397576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_top.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base2_fixed_joint_lump__arm_stand_collision_4'>
+          <pose frame=''>0.018512 -0.510992 0.430576 1.5708 -0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/arm_stand.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='table_base2_fixed_joint_lump__root_collision_5'>
+          <pose frame=''>0.018512 -0.510992 0.510576 0 0 -1.5708</pose>
+          <geometry>
+            <box>
+              <size>1e-05 1e-05 1e-05</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='table_base2_fixed_joint_lump__j2s7s300_link_base_collision_6'>
+          <pose frame=''>0.018512 -0.510992 0.510576 0 0 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/base.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='table_base2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_base.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base2_fixed_joint_lump__table_top2_visual_1'>
+          <pose frame=''>0.018512 -0.175992 0.397576 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/table_top.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base2_fixed_joint_lump__table_top2_visual_2'>
+          <pose frame=''>0.018512 0.221508 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.05 0.015 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base2_fixed_joint_lump__table_top2_visual_3'>
+          <pose frame=''>0.541012 -0.175992 0.435076 1.5708 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.005 0.015 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base2_fixed_joint_lump__arm_stand_visual_4'>
+          <pose frame=''>0.018512 -0.510992 0.430576 1.5708 -0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/robot_grasp/models/table/meshes/arm_stand.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='table_base2_fixed_joint_lump__root_visual_5'>
+          <pose frame=''>0.018512 -0.510992 0.510576 0 0 -1.5708</pose>
+          <geometry>
+            <box>
+              <size>1e-05 1e-05 1e-05</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='table_base2_fixed_joint_lump__j2s7s300_link_base_visual_6'>
+          <pose frame=''>0.018512 -0.510992 0.510576 0 0 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/base.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay/>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j02' type='fixed'>
+        <child>table_base2</child>
+        <parent>world</parent>
+      </joint>
+      <link name='j2s7s300_link_1'>
+        <pose frame=''>0.018512 0.339008 0.940326 3.14159 -0 1.5708</pose>
+        <inertial>
+          <pose frame=''>0 -0.002 -0.0605 0 -0 0</pose>
+          <mass>0.7477</mass>
+          <inertia>
+            <ixx>0.00152032</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00152032</iyy>
+            <iyz>0</iyz>
+            <izz>0.00059816</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/shoulder.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/shoulder.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_1_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/ring_big.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_1' type='revolute'>
+        <child>j2s7s300_link_1</child>
+        <parent>table_base2</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_2'>
+        <pose frame=''>0.020112 0.339008 1.05908 1.5708 0 -1.5708</pose>
+        <inertial>
+          <pose frame=''>0 -0.103563 0 0 -0 0</pose>
+          <mass>0.8447</mass>
+          <inertia>
+            <ixx>0.00247074</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000380115</iyy>
+            <iyz>0</iyz>
+            <izz>0.00247074</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/arm_half_1.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/arm_half_1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_2_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/ring_big.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_2' type='revolute'>
+        <child>j2s7s300_link_2</child>
+        <parent>j2s7s300_link_1</parent>
+        <axis>
+          <xyz>-1 0 0</xyz>
+          <limit>
+            <lower>0.523599</lower>
+            <upper>5.75959</upper>
+            <effort>2000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_3'>
+        <pose frame=''>0.020112 0.339008 0.854076 0 0 -1.5708</pose>
+        <inertial>
+          <pose frame=''>0 0 -0.102245 0 -0 0</pose>
+          <mass>0.8447</mass>
+          <inertia>
+            <ixx>0.00247074</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00247074</iyy>
+            <iyz>0</iyz>
+            <izz>0.000380115</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/arm_half_2.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_3_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/arm_half_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_3_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/ring_big.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_3' type='revolute'>
+        <child>j2s7s300_link_3</child>
+        <parent>j2s7s300_link_2</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_4'>
+        <pose frame=''>0.020112 0.339008 0.649076 1.5708 -0 1.5708</pose>
+        <inertial>
+          <pose frame=''>0 0.081 -0.0086 0 -0 0</pose>
+          <mass>0.6763</mass>
+          <inertia>
+            <ixx>0.00142022</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000304335</iyy>
+            <iyz>0</iyz>
+            <izz>0.00142022</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_4_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/forearm.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_4_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/forearm.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_4_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/ring_small.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_4' type='revolute'>
+        <child>j2s7s300_link_4</child>
+        <parent>j2s7s300_link_3</parent>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0.523599</lower>
+            <upper>5.75959</upper>
+            <effort>2000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_5'>
+        <pose frame=''>0.008712 0.339008 0.856376 -3.14159 -0 -1.5708</pose>
+        <inertial>
+          <pose frame=''>0 0.002885 -0.054193 0 -0 0</pose>
+          <mass>0.463</mass>
+          <inertia>
+            <ixx>0.000432132</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000432132</iyy>
+            <iyz>0</iyz>
+            <izz>9.26e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_5_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/wrist_spherical_1.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_5_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/wrist_spherical_1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_5_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/ring_small.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_5' type='revolute'>
+        <child>j2s7s300_link_5</child>
+        <parent>j2s7s300_link_4</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_6'>
+        <pose frame=''>0.008712 0.339008 0.960126 -1.5708 0 1.5708</pose>
+        <inertial>
+          <pose frame=''>0 0.049721 -0.002856 0 -0 0</pose>
+          <mass>0.463</mass>
+          <inertia>
+            <ixx>0.000432132</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>9.26e-05</iyy>
+            <iyz>0</iyz>
+            <izz>0.000432132</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_6_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/wrist_spherical_2.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_6_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/wrist_spherical_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_6_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/ring_small.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_6' type='revolute'>
+        <child>j2s7s300_link_6</child>
+        <parent>j2s7s300_link_5</parent>
+        <axis>
+          <xyz>-1 0 0</xyz>
+          <limit>
+            <lower>0.523599</lower>
+            <upper>5.75959</upper>
+            <effort>2000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_7'>
+        <pose frame=''>0.008712 0.339008 0.856376 0 0 -1.5708</pose>
+        <inertial>
+          <pose frame=''>0 0 -0.06 0 -0 0</pose>
+          <mass>0.727</mass>
+          <inertia>
+            <ixx>0.000345324</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000345324</iyy>
+            <iyz>0</iyz>
+            <izz>0.0005816</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_7_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/hand_3finger.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='j2s7s300_link_7_fixed_joint_lump__j2s7s300_end_effector_collision_1'>
+          <pose frame=''>0 0 -0.16 -3.14159 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1e-05 1e-05 1e-05</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_7_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/hand_3finger.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_7_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/ring_small.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_7_fixed_joint_lump__j2s7s300_end_effector_visual_2'>
+          <pose frame=''>0 0 -0.16 -3.14159 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1e-05 1e-05 1e-05</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_7' type='revolute'>
+        <child>j2s7s300_link_7</child>
+        <parent>j2s7s300_link_6</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_finger_1'>
+        <pose frame=''>0.039972 0.336218 0.741706 -1.5708 0.649262 -0.211185</pose>
+        <inertial>
+          <pose frame=''>0.044 -0.0015 0 0 -0 0</pose>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>1.62499e-06</ixx>
+            <ixy>6.6e-07</ixy>
+            <ixz>0</ixz>
+            <iyy>1.126e-05</iyy>
+            <iyz>0</iyz>
+            <izz>9.885e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_finger_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_proximal.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='j2s7s300_link_finger_1_fixed_joint_lump__j2s7s300_link_finger_tip_1_collision_1'>
+          <pose frame=''>0.044 -0.003 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_distal.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_finger_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_proximal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_finger_1_fixed_joint_lump__j2s7s300_link_finger_tip_1_visual_1'>
+          <pose frame=''>0.044 -0.003 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_distal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_finger_1' type='revolute'>
+        <child>j2s7s300_link_finger_1</child>
+        <parent>j2s7s300_link_7</parent>
+        <axis>
+          <xyz>0.209619 0.977783 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>2</upper>
+            <effort>2000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_finger_2'>
+        <pose frame=''>-0.018359 0.316748 0.741556 -1.5708 0.649262 -2.95694</pose>
+        <inertial>
+          <pose frame=''>0.044 -0.0015 0 0 -0 0</pose>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>1.62499e-06</ixx>
+            <ixy>6.6e-07</ixy>
+            <ixz>0</ixz>
+            <iyy>1.126e-05</iyy>
+            <iyz>0</iyz>
+            <izz>9.885e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_finger_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_proximal.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='j2s7s300_link_finger_2_fixed_joint_lump__j2s7s300_link_finger_tip_2_collision_1'>
+          <pose frame=''>0.044 -0.003 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_distal.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_finger_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_proximal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_finger_2_fixed_joint_lump__j2s7s300_link_finger_tip_2_visual_1'>
+          <pose frame=''>0.044 -0.003 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_distal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_finger_2' type='revolute'>
+        <child>j2s7s300_link_finger_2</child>
+        <parent>j2s7s300_link_7</parent>
+        <axis>
+          <xyz>0.183608 -0.983 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>2</upper>
+            <effort>2000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='j2s7s300_link_finger_3'>
+        <pose frame=''>-0.018359 0.361268 0.741556 -1.5708 0.649262 2.95694</pose>
+        <inertial>
+          <pose frame=''>0.044 -0.0015 0 0 -0 0</pose>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>1.62499e-06</ixx>
+            <ixy>6.6e-07</ixy>
+            <ixz>0</ixz>
+            <iyy>1.126e-05</iyy>
+            <iyz>0</iyz>
+            <izz>9.885e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='j2s7s300_link_finger_3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_proximal.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='j2s7s300_link_finger_3_fixed_joint_lump__j2s7s300_link_finger_tip_3_collision_1'>
+          <pose frame=''>0.044 -0.003 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_distal.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='j2s7s300_link_finger_3_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_proximal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='j2s7s300_link_finger_3_fixed_joint_lump__j2s7s300_link_finger_tip_3_visual_1'>
+          <pose frame=''>0.044 -0.003 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/xkx/JCAR_V1_ws/src/kinova_description/meshes/finger_distal.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2s7s300_joint_finger_3' type='revolute'>
+        <child>j2s7s300_link_finger_3</child>
+        <parent>j2s7s300_link_7</parent>
+        <axis>
+          <xyz>-0.183608 -0.983 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>2</upper>
+            <effort>2000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <static>0</static>
+      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+        <robotNamespace>j2s7s300</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='cylinder'>
+      <static>0</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://cylinder/meshes/cylinder.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://cylinder/meshes/cylinder.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.505871 -1.36008 0 0 -0 0</pose>
+    </model>
+    <model name='fourPrism'>
+      <static>0</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://fourPrism/meshes/fourPrism.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://fourPrism/meshes/fourPrism.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.430608 -1.30907 0 0 -0 0</pose>
+    </model>
+    <model name='fourPrismoid'>
+      <static>0</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://fourPrismoid/meshes/fourPrismoid.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://fourPrismoid/meshes/fourPrismoid.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.529947 -1.22952 0 0 -0 0</pose>
+    </model>
+    <model name='fourPyramid'>
+      <static>0</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://fourPyramid/meshes/fourPyramid.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://fourPyramid/meshes/fourPyramid.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.560237 -1.36287 0 0 -0 0</pose>
+    </model>
+    <model name='halfSphere'>
+      <pose frame=''>-0.487247 -1.39028 0 0 -0 0</pose>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://halfSphere/meshes/halfSphere.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://halfSphere/meshes/halfSphere.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='sixPrism'>
+      <static>0</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://sixPrism/meshes/sixPrism.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://sixPrism/meshes/sixPrism.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.413876 -1.23268 0 0 -0 0</pose>
+    </model>
+    <model name='threePyramid'>
+      <static>0</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://threePyramid/meshes/threePyramid.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://threePyramid/meshes/threePyramid.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.373083 -1.37923 0 0 -0 0</pose>
+    </model>
+    <model name='cone'>
+      <static>0</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://cone/meshes/cone.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://cone/meshes/cone.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.016207 -1.10946 0 0 -0 0</pose>
+    </model>
+    <model name='cube'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>0.07</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <iyy>1e-05</iyy>
+            <izz>1e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://cube/meshes/cube.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>model://cube/meshes/cube.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/WoodTile</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.181055 -0.793967 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>28 832000000</sim_time>
+      <real_time>56 638058086</real_time>
+      <wall_time>1532761080 740659019</wall_time>
+      <iterations>28832</iterations>
+      <model name='cone'>
+        <pose frame=''>0.307258 -0.15651 0.727389 0.03515 -0.010117 -0.002759</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.307258 -0.15651 0.727389 0.03515 -0.010117 -0.002759</pose>
+          <velocity>0.003293 0.001293 0.003672 -0.068074 0.173329 4e-06</velocity>
+          <acceleration>7.71002 2.02811 6.44471 2.90955 -0.502184 -2.91417</acceleration>
+          <wrench>0.539702 0.141968 0.45113 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cube'>
+        <pose frame=''>0.215521 -0.302082 0.73339 -3.14159 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.215521 -0.302082 0.73339 -3.14159 0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cylinder'>
+        <pose frame=''>0.209172 -0.224028 0.745891 -3.1415 -5.8e-05 -0.046531</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.209172 -0.224028 0.745891 -3.1415 -5.8e-05 -0.046531</pose>
+          <velocity>-0.004539 -0.005045 0.000238 0.135343 -0.122597 -0.006102</velocity>
+          <acceleration>-0.649909 0.713324 -6.22695 2.96395 1.51346 -0.071516</acceleration>
+          <wrench>-0.045494 0.049933 -0.435886 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='fourPrism'>
+        <pose frame=''>0.296814 -0.222491 0.745891 -3.14158 1.1e-05 0.000317</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.296814 -0.222491 0.745891 -3.14158 1.1e-05 0.000317</pose>
+          <velocity>4e-06 -0 7.5e-05 1e-05 9.4e-05 -1e-06</velocity>
+          <acceleration>0.003541 -0.000365 0.075312 0.009747 0.094421 -0.000537</acceleration>
+          <wrench>0.000248 -2.6e-05 0.005272 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='fourPrismoid'>
+        <pose frame=''>0.283889 -0.297644 0.723033 -1.1e-05 -8e-06 -0.004767</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.283889 -0.297644 0.723033 -1.1e-05 -8e-06 -0.004767</pose>
+          <velocity>0.002454 -0.000235 0.003741 0.016045 0.167573 -6e-06</velocity>
+          <acceleration>6.15226 -2.02187 7.3792 0.709847 -1.06291 -0.426939</acceleration>
+          <wrench>0.430658 -0.141531 0.516544 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='fourPyramid'>
+        <pose frame=''>0.195326 -0.144193 0.726736 5e-05 5.1e-05 5e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.195326 -0.144193 0.726736 5e-05 5.1e-05 5e-06</pose>
+          <velocity>0.00093 -0.00085 -0.004442 0.046328 0.050686 1e-06</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -0.686 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='halfSphere'>
+        <pose frame=''>0.353577 -0.256208 0.717758 -0.000122 -0.000195 0.000531</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.353577 -0.256208 0.717758 -0.000122 -0.000195 0.000531</pose>
+          <velocity>-0.001823 0.003599 0.000497 -0.383804 -0.194587 -9.5e-05</velocity>
+          <acceleration>-3.14499 7.05603 1.86403 -1.87987 -0.668681 2.97557</acceleration>
+          <wrench>-0.220149 0.493922 0.130482 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='object_on_table'>
+        <pose frame=''>-0 0 -0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='j2s7s300_link_1'>
+          <pose frame=''>0.018446 0.33906 0.940328 -3.14129 -0.000242 1.56537</pose>
+          <velocity>0.014231 -0.012992 -0.000553 -0.06121 -0.066645 -1.59318</velocity>
+          <acceleration>-3.39595 0.773814 0.172846 1.77081 -1.51306 -1.8376</acceleration>
+          <wrench>-2.53915 0.578581 0.129237 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_2'>
+          <pose frame=''>0.02005 0.339058 1.05907 -1.57115 -0.242983 1.56554</pose>
+          <velocity>0.012678 -0.01722 0.001619 -0.471529 0.076026 -1.61109</velocity>
+          <acceleration>15.0363 3.3471 -1.03258 -1.18685 0.262996 -2.00469</acceleration>
+          <wrench>12.7012 2.8273 -0.872218 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_3'>
+          <pose frame=''>0.019791 0.289707 1.25804 2.93061 -0.121511 2.61988</pose>
+          <velocity>-0.070485 0.084121 0.029319 -0.479614 0.215755 -2.19228</velocity>
+          <acceleration>58.2716 -2.70981 -3.38847 -1.96606 -0.451162 -0.224663</acceleration>
+          <wrench>49.222 -2.28898 -2.86224 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_4'>
+          <pose frame=''>0.01914 0.240657 1.45687 -1.34407 -0.391122 -0.635321</pose>
+          <velocity>-0.054882 0.11073 0.089306 1.28516 -1.05567 0.358824</velocity>
+          <acceleration>52.9147 4.26285 -13.2265 -1.45268 0.282149 -0.740032</acceleration>
+          <wrench>35.7862 2.88296 -8.94505 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_5'>
+          <pose frame=''>0.102706 0.223209 1.26756 0.187247 -0.40878 -0.533211</pose>
+          <velocity>0.357274 -0.539591 0.344467 -0.770797 -0.792151 -2.35647</velocity>
+          <acceleration>21.7258 6.54567 -29.2316 -0.210735 1.22779 1.58929</acceleration>
+          <wrench>10.059 3.03064 -13.5342 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_6'>
+          <pose frame=''>0.147319 0.219309 1.17397 1.26097 -0.974244 2.94192</pose>
+          <velocity>0.604682 -0.887035 0.476089 -2.52318 0.720875 1.51117</velocity>
+          <acceleration>-3.06823 7.30407 -23.0971 -0.250657 0.723368 -2.52827</acceleration>
+          <wrench>-1.42059 3.38178 -10.694 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_7'>
+          <pose frame=''>0.221091 0.172112 1.22949 -2.82626 0.973026 -0.193045</pose>
+          <velocity>0.734843 -0.64092 0.541972 -2.14845 0.481255 1.80124</velocity>
+          <acceleration>-31.8829 2.62465 2.82226 1.82775 0.159471 0.123602</acceleration>
+          <wrench>-23.1788 1.90812 2.05178 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_finger_1'>
+          <pose frame=''>0.290658 0.091998 1.28308 0.380262 -0.58991 -0.497409</pose>
+          <velocity>0.911132 -0.402488 0.680942 1.15233 0.905175 -2.23714</velocity>
+          <acceleration>-54.9787 68.299 75.9248 0.652999 -0.166944 0.414491</acceleration>
+          <wrench>-1.09957 1.36598 1.5185 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_finger_2'>
+          <pose frame=''>0.32684 0.141382 1.27725 -3.05645 -0.559174 -0.684983</pose>
+          <velocity>0.817999 -0.34928 0.557876 0.473606 -1.05348 -2.92115</velocity>
+          <acceleration>52.2744 109.061 10.9384 -1.59676 -0.078664 -1.36777</acceleration>
+          <wrench>1.04549 2.18121 0.218768 0 -0 0</wrench>
+        </link>
+        <link name='j2s7s300_link_finger_3'>
+          <pose frame=''>0.302247 0.146189 1.31405 -2.69737 -0.526928 -0.667946</pose>
+          <velocity>0.828181 -0.314777 0.558708 2.405 0.908397 2.37824</velocity>
+          <acceleration>-12.3408 66.0144 23.1073 -0.317657 1.4675 0.136522</acceleration>
+          <wrench>-0.246817 1.32029 0.462145 0 -0 0</wrench>
+        </link>
+        <link name='table_base'>
+          <pose frame=''>-0 0 0.273 0 -0 0</pose>
+          <velocity>-0 -0 0 0 -0 0</velocity>
+          <acceleration>-0 -0 0 0 -0 0</acceleration>
+          <wrench>-0.013374 -0.013478 0.007335 0 -0 0</wrench>
+        </link>
+        <link name='table_base2'>
+          <pose frame=''>-0 0.85 0.273 0 -0 0</pose>
+          <velocity>-0 0 -0 -0 -0 -0</velocity>
+          <acceleration>0 -0 0 0 -0 0</acceleration>
+          <wrench>0.346221 -0.0911 0.254007 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='sixPrism'>
+        <pose frame=''>0.158639 -0.260372 0.74589 -3.14159 -2.1e-05 0.00336</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.158639 -0.260372 0.74589 -3.14159 -2.1e-05 0.00336</pose>
+          <velocity>0.002076 0.000692 0.00876 -0.018668 0.0554 0.001475</velocity>
+          <acceleration>4.14087 -0.036364 18.2395 -2.8897 0.363688 1.41975</acceleration>
+          <wrench>0.289861 -0.002545 1.27677 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='threePyramid'>
+        <pose frame=''>0.365923 -0.191884 0.727305 -8.1e-05 -1e-06 0.00074</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.365923 -0.191884 0.727305 -8.1e-05 -1e-06 0.00074</pose>
+          <velocity>0.00138 0.002416 2.2e-05 -0.127731 0.072989 1.8e-05</velocity>
+          <acceleration>2.75611 4.82215 0.022286 2.67306 1.20667 0.007839</acceleration>
+          <wrench>0.192928 0.33755 0.00156 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>0.416571 -0.481993 1.17537 0 0.819643 2.22819</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
