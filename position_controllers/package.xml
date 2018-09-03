@@ -1,0 +1,26 @@
+<package>
+  <name>position_controllers</name>
+  <version>0.9.4</version>
+  <description>position_controllers</description>
+
+  <maintainer email="adolfo.rodriguez@pal-robotics.com">Adolfo Rodriguez Tsouroukdissian</maintainer>
+  <maintainer email="davetcoleman@gmail.com">Dave Coleman</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://github.com/ros-controls/ros_controllers/wiki</url>
+  <url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
+  <url type="repository">https://github.com/ros-controls/ros_controllers</url>
+
+  <author>Vijay Pradeep</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>controller_interface</build_depend> 
+  <build_depend>forward_command_controller</build_depend> 
+  <run_depend>controller_interface</run_depend> 
+  <run_depend>forward_command_controller</run_depend> 
+
+  <export>
+    <controller_interface plugin="${prefix}/position_controllers_plugins.xml"/>
+  </export>
+</package>
