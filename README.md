@@ -38,7 +38,7 @@ You can find kinova-ros package [here](https://github.com/Kinovarobotics/kinova-
 4. catkin_make the workingspace angin
 
 ## Run
-roalaunch robot_grasp START_Gazebo.launch
+roslaunch robot_grasp START_Gazebo.launch
 
 
 
